@@ -18,12 +18,15 @@ endif()
 
 if (MINOR_VERSION)
 message("minor version is " ${MINOR_VERSION} "!")
+add_compile_definitions(MINOR_VERSION=${MINOR_VERSION})
 endif()
 
 if(PATCH_VERSION)
 message("patch version is " ${PATCH_VERSION} "!")
+add_compile_definitions(PATCH_VERSION=${PATCH_VERSION})
 endif()
 
+add_compile_definitions(PRODUCT_VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}")
 # include_directories(src)
 
 file(GLOB SRC_LIST 
