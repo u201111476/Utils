@@ -5,6 +5,6 @@
 
 #include <Windows.h>
 
-int Base64Encode(const BYTE* inputBuf, unsigned int inputCount, char* outputBuf);
+int Base64Encode(const unsigned char* inputBuf, unsigned int inputCount, char* outputBuf);
 
 #endif

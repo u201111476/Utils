@@ -1,18 +1,16 @@
 #include "Utils.h"
 
-static const CHAR* DATA_BIN2ASCII = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+static const char* DATA_BIN2ASCII = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-INT BASE64_Encode(const BYTE* inputBuffer, INT inputCount, TCHAR* outputBuffer)
+int Base64Encode(const unsigned char* inputBuffer, unsigned int inputCount, char* outputBuffer)
 {
-    INT i;
-    BYTE b0, b1, b2;
+    int i;
+    unsigned char b0, b1, b2;
 
-    if ((inputBuffer == NULL) || (inputCount < 0))
-    {
+    if (inputBuffer == nullptr)
         return -1;    // 参数错误
-    }
 
-    if (outputBuffer != NULL)
+    if (outputBuffer != nullptr)
     {
         for (i = inputCount; i > 0; i -= 3)
         {
@@ -39,7 +37,7 @@ INT BASE64_Encode(const BYTE* inputBuffer, INT inputCount, TCHAR* outputBuffer)
             }
         } // End for i
 
-        *outputBuffer++ = TEXT('/0');    // 添加字符串结束标记
+        *outputBuffer++ = '\0';    // 添加字符串结束标记
     }
 
     return ((inputCount + 2) / 3) * 4;    // 返回有效字符个数
@@ -63,16 +61,14 @@ static const BYTE DATA_ASCII2BIN[128] = {
     0x29,0x2A,0x2B,0x2C,0x2D,0x2E,0x2F,0x30,0x31,0x32,0x33,0xFF,0xFF,0xFF,0xFF,0xFF
 };
 
-INT BASE64_Decode(const TCHAR* inputBuffer, INT inputCount, BYTE* outputBuffer)
+int BASE64_Decode(const char* inputBuffer, unsigned int inputCount, unsigned char* outputBuffer)
 {
-    INT i, j;
-    BYTE b[4];
-    TCHAR ch;
+    int i, j;
+    unsigned char b[4];
+    char ch;
 
-    if ((inputBuffer == NULL) || (inputCount < 0))
-    {
+    if (inputBuffer == nullptr)
         return -1;    // 参数错误
-    }
 
     // 去除头部空白字符
     while (inputCount > 0)
