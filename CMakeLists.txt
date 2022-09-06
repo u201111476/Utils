@@ -4,4 +4,4 @@ set(target WjUtils)
 project(${target})
 
 add_subdirectory(src)
-# add_subdirectory(Test)
+add_subdirectory(test)
