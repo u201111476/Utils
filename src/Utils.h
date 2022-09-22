@@ -5,6 +5,17 @@
 
 #include <Windows.h>
 
-int Base64Encode(const unsigned char* inputBuf, unsigned int inputCount, char* outputBuf);
+#define WJ_UTILS_API __declspec(dllexport)
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+WJ_UTILS_API int Add(int a, int b);
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

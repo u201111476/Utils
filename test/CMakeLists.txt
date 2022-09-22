@@ -27,7 +27,6 @@ add_compile_definitions(PATCH_VERSION=${PATCH_VERSION})
 endif()
 
 add_compile_definitions(PRODUCT_VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}")
-# include_directories(src)
 
 file(GLOB SRC_LIST 
   "*.cpp"
@@ -37,7 +36,17 @@ file(GLOB HEADER_LIST
   "*.h"
 )
 
+if(${CMAKE_BUILD_TYPE} MATCHES "debug")
+    link_directories(../bin/Debug)
+else()
+    link_directories(../bin/Release)
+endif()
+
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../bin)
 
 add_executable(${target} ${SRC_LIST} ${HEADER_LIST})
+
+target_link_libraries(${target}
+    WjUtils.lib
+)
