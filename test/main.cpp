@@ -24,6 +24,8 @@ using namespace std;
 int main()
 {
     int c = Add(1, 2);
+    unsigned long freeSpace = GetDiskFreeSpaceMB(2);            //A盘符index为0，B盘符为1，依次类推
+    cout << freeSpace << endl;
     cout << c << endl;
     return 0;
 }
