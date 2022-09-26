@@ -23,9 +23,17 @@ using namespace std;
 
 int main()
 {
-    int c = Add(1, 2);
-    unsigned long freeSpace = GetDiskFreeSpaceMB(2);            //A盘符index为0，B盘符为1，依次类推
-    cout << freeSpace << endl;
-    cout << c << endl;
+    //int c = Add(1, 2);
+    //unsigned long freeSpace = GetDiskFreeSpaceMB(2);            //A盘符index为0，B盘符为1，依次类推
+    //cout << freeSpace << endl;
+    //unsigned long totalSpace = GetDiskTotalSpaceMB(2);
+    //cout << totalSpace << endl;
+    //cout << c << endl;
+
+    char buf[MAX_PATH] = {};
+    DWORD size = GetLogicalDriveStringsA(MAX_PATH - 1, buf);
+    for (int i = 0; i < size; ++i)
+        cout << buf[i];
+
     return 0;
 }

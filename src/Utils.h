@@ -14,6 +14,7 @@ extern "C" {
 
 	WJ_UTILS_API int Add(int a, int b);
 	WJ_UTILS_API unsigned long GetDiskFreeSpaceMB(int diskIdx);
+	WJ_UTILS_API unsigned long GetDiskTotalSpaceMB(int diskIdx);
 #ifdef __cplusplus
 }
 #endif

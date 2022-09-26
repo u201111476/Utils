@@ -21,3 +21,13 @@ unsigned long GetDiskFreeSpaceMB(int diskIdx)
         return static_cast<unsigned long>(freeSpace.QuadPart / 1024 / 1024);
     return 0;
 }
+
+unsigned long GetDiskTotalSpaceMB(int diskIdx)
+{
+    const std::string diskLetter = GetDiskStringFromDiskIdx(diskIdx);
+    ULARGE_INTEGER totalSpace;
+    const bool result = GetDiskFreeSpaceExA(diskLetter.c_str(), nullptr, &totalSpace, nullptr);
+    if (result)
+        return static_cast<unsigned long>(totalSpace.QuadPart / 1024 / 1024);
+    return 0;
+}

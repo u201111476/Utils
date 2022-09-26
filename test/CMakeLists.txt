@@ -45,7 +45,10 @@ endif()
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../bin)
 
+
 add_executable(${target} ${SRC_LIST} ${HEADER_LIST})
+
+add_dependencies(${target} WjUtils)
 
 target_link_libraries(${target}
     WjUtils.lib
