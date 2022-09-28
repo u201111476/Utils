@@ -1,18 +1,30 @@
 #include "Utils.h"
 
+#include <stdio.h>
+
 int Add(int a, int b)
 {
     return a + b;
 }
 
-std::string GetDiskStringFromDiskIdx(int diskIdx)
+void ExportClass::foo()
+{
+    printf("foo!\n");
+}
+
+std::string ExportClass::getName() const
+{
+    return "abc";
+}
+
+std::string N_diskUtils::GetDiskStringFromDiskIdx(int diskIdx)
 {
     if (diskIdx < 0)
         return std::string();
     return std::string("") + char(65 + diskIdx) + ":\\";
 }
 
-unsigned long GetDiskFreeSpaceMB(int diskIdx)
+unsigned long N_diskUtils::GetDiskFreeSpaceMB(int diskIdx)
 {
     const std::string diskLetter = GetDiskStringFromDiskIdx(diskIdx);
     ULARGE_INTEGER freeSpace;
@@ -22,7 +34,7 @@ unsigned long GetDiskFreeSpaceMB(int diskIdx)
     return 0;
 }
 
-unsigned long GetDiskTotalSpaceMB(int diskIdx)
+unsigned long N_diskUtils::GetDiskTotalSpaceMB(int diskIdx)
 {
     const std::string diskLetter = GetDiskStringFromDiskIdx(diskIdx);
     ULARGE_INTEGER totalSpace;

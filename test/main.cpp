@@ -3,6 +3,8 @@
 
 #include "../src/Utils.h"
 
+#include <vector>
+
 using namespace std;
 
 #ifndef MAJOR_VERSION
@@ -24,16 +26,28 @@ using namespace std;
 int main()
 {
     //int c = Add(1, 2);
-    //unsigned long freeSpace = GetDiskFreeSpaceMB(2);            //A盘符index为0，B盘符为1，依次类推
+    //unsigned long freeSpace = N_diskUtils::GetDiskFreeSpaceMB(2);            //A盘符index为0，B盘符为1，依次类推
     //cout << freeSpace << endl;
-    //unsigned long totalSpace = GetDiskTotalSpaceMB(2);
+    //unsigned long totalSpace = N_diskUtils::GetDiskTotalSpaceMB(2);
     //cout << totalSpace << endl;
     //cout << c << endl;
 
     char buf[MAX_PATH] = {};
     DWORD size = GetLogicalDriveStringsA(MAX_PATH - 1, buf);
-    for (int i = 0; i < size; ++i)
-        cout << buf[i];
-
+    vector<std::string> diskDrives;
+    int idx = 0;
+    while (idx < size)
+    {
+        std::string drive = buf + idx;
+        diskDrives.push_back(drive);
+        idx += drive.length() + 1;
+    }
+    for (int i = 0; i < diskDrives.size(); ++i)
+    {
+        cout << diskDrives[i][0] << "disk's total space is:" << N_diskUtils::GetDiskTotalSpaceMB(diskDrives[i][0] - 'A') << "MB" << endl;
+    }
+    //ExportClass ec;
+    //ec.foo();
+    //cout << ec.getName() << endl;
     return 0;
 }
