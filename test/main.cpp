@@ -44,10 +44,11 @@ int main()
     }
     for (int i = 0; i < diskDrives.size(); ++i)
     {
-        cout << diskDrives[i][0] << "disk's total space is:" << N_diskUtils::GetDiskTotalSpaceMB(diskDrives[i][0] - 'A') << "MB" << endl;
+        cout << diskDrives[i][0] << "disk's total space is:" << N_diskUtils::GetDiskTotalSpaceMB(diskDrives[i]) << "MB" << endl;
+        cout << diskDrives[i][0] << "disk's free space is:" << N_diskUtils::GetDiskFreeSpaceMB(diskDrives[i]) << "MB" << endl;
+        cout << diskDrives[i][0] << "disk type is:" << GetDriveTypeA(diskDrives[i].c_str()) << endl;
+        cout << N_diskUtils::IsUSBDrive(diskDrives[i].c_str()) << endl;
+        //cout << GetLastError() << endl;
     }
-    //ExportClass ec;
-    //ec.foo();
-    //cout << ec.getName() << endl;
     return 0;
 }

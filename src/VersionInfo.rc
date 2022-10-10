@@ -18,10 +18,10 @@ BEGIN
             VALUE "FileDescription", "WEIJUN Utils Library"
             VALUE "FileVersion", "1,2,3,4"
             VALUE "InternalName", "Weijun Utils"
-            VALUE "LegalCopyright", "Copyright (C) 2022 All rights reserved."
-            VALUE "OriginalFilename", ""
+            VALUE "LegalCopyright", "Copyright (C) 2022 ChinaTelecom All rights reserved."
+            VALUE "OriginalFilename", "DataUtils"
             VALUE "ProductName", "WjUtils"
-            VALUE "ProductVersion", "1.2.7"
+            VALUE "ProductVersion", "1.2.7.1"
         END
     END
     BLOCK "VarFileInfo"

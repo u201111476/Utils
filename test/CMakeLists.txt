@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 set(target Test)
 project(${target})
 
-# set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE debug)
 # set(CMAKE_CXX_COMPILER x86)
 # set(CMAKE_CXX_STANDARD 14)
 # set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -51,5 +51,5 @@ add_executable(${target} ${SRC_LIST} ${HEADER_LIST})
 add_dependencies(${target} WjUtils)
 
 target_link_libraries(${target}
-    WjUtils.lib
+   WjUtils.lib
 )
