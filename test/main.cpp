@@ -2,7 +2,6 @@
 #include <Windows.h>
 
 #include "../src/Utils.h"
-
 #include <vector>
 
 using namespace std;
@@ -47,8 +46,7 @@ int main()
         cout << diskDrives[i][0] << "disk's total space is:" << N_diskUtils::GetDiskTotalSpaceMB(diskDrives[i]) << "MB" << endl;
         cout << diskDrives[i][0] << "disk's free space is:" << N_diskUtils::GetDiskFreeSpaceMB(diskDrives[i]) << "MB" << endl;
         cout << diskDrives[i][0] << "disk type is:" << GetDriveTypeA(diskDrives[i].c_str()) << endl;
-        cout << N_diskUtils::IsUSBDrive(diskDrives[i].c_str()) << endl;
-        //cout << GetLastError() << endl;
+        cout << N_diskUtils::IsUSBDrive(diskDrives[i]) << endl;
     }
     return 0;
 }
